@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 public class ActivitySectorController {
-
+//fffffff
     IActivitySector activitySectorService;
 
     @GetMapping("/activitySector")
