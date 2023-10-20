@@ -15,8 +15,6 @@
     <description>DevOps_Project</description>
     <properties>
         <java.version>11</java.version>
-		<sonar.login>admin</sonar.login>
-		<sonar.password>kais</sonar.password>
     </properties>
     <dependencies>
         <dependency>
