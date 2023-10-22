@@ -51,7 +51,6 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
     </dependencies>
-	
 	<!-- Deploy to Nexus -->
 	<distributionManagement>
 		<repository>
