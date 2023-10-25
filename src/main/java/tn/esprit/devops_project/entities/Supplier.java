@@ -31,6 +31,6 @@ public class Supplier implements Serializable {
 	@ManyToMany
 	private Set<ActivitySector> activitySectors;
     
-//123
+//123456
 	
 }
