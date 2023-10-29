@@ -7,9 +7,10 @@ import tn.esprit.devops_project.entities.Stock;
 import tn.esprit.devops_project.services.Iservices.IStockService;
 import java.util.List;
 
-@CrossOrigin(origins = "*")
 @RestController
 @AllArgsConstructor
+@RequestMapping("/")
+@CrossOrigin(origins = "http://localhost:4200")
 public class StockController {
 
     IStockService stockService;
