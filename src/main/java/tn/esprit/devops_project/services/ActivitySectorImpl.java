@@ -9,6 +9,7 @@ import tn.esprit.devops_project.services.Iservices.IActivitySector;
 import java.util.List;
 
 @Service
+
 @AllArgsConstructor
 public class ActivitySectorImpl implements IActivitySector {
 
