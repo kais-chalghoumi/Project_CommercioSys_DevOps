@@ -4,7 +4,6 @@ import tn.esprit.devops_project.entities.Invoice;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 public interface IInvoiceService {
 	List<Invoice> retrieveAllInvoices();
