@@ -9,10 +9,12 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/")
+@CrossOrigin(origins = "http://localhost:4200")
 public class OperatorController {
 
 	IOperatorService operatorService;
-	
+
 	@GetMapping("/operator")
 	public List<Operator> getOperators() {
 		return operatorService.retrieveAllOperators();
@@ -38,5 +40,4 @@ public class OperatorController {
 		return operatorService.updateOperator(operator);
 	}
 
-	
 }

@@ -10,6 +10,8 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ActivitySectorController {
 
     IActivitySector activitySectorService;
@@ -38,4 +40,5 @@ public class ActivitySectorController {
     ActivitySector retrieveActivitySector(@PathVariable Long id){
         return activitySectorService.retrieveActivitySector(id);
     }
+
 }

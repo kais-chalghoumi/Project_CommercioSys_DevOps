@@ -9,6 +9,8 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/")
+@CrossOrigin(origins = "http://localhost:4200")
 public class SupplierController {
 
 	ISupplierService supplierService;
@@ -37,5 +39,6 @@ public class SupplierController {
 	public Supplier modifyFournisseur(@RequestBody Supplier supplier) {
 		return supplierService.updateSupplier(supplier);
 	}
+
 
 }

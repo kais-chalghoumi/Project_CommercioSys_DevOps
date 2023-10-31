@@ -11,13 +11,15 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/")
+@CrossOrigin(origins = "http://localhost:4200")
 public class InvoiceController {
 
     IInvoiceService invoiceService;
 
     @GetMapping("/invoice")
     public List<Invoice> getInvoices() {
-       return invoiceService.retrieveAllInvoices();
+        return invoiceService.retrieveAllInvoices();
     }
 
     @GetMapping("/invoice/{invoiceId}")
@@ -44,6 +46,5 @@ public class InvoiceController {
     public float getTotalAmountInvoiceBetweenDates(@PathVariable Date startDate,@PathVariable Date endDate){
         return invoiceService.getTotalAmountInvoiceBetweenDates(startDate, endDate);
     }
-
 
 }

@@ -37,4 +37,5 @@ public class ActivitySectorImpl implements IActivitySector {
     public ActivitySector retrieveActivitySector(Long id) {
         return activitySectorRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid activitySector Id:" + id));
     }
+
 }

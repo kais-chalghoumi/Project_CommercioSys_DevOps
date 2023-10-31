@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class StockServiceImpl implements IStockService {
 
-   private final StockRepository stockRepository;
+    private final StockRepository stockRepository;
 
     @Override
     public Stock addStock(Stock stock) {
@@ -28,7 +28,6 @@ public class StockServiceImpl implements IStockService {
     public List<Stock> retrieveAllStock() {
         return stockRepository.findAll();
     }
-
 
 
 }

@@ -14,5 +14,4 @@ public interface IProductService {
     void deleteProduct(Long id);
     List<Product> retreiveProductStock(Long id);
 
-
 }

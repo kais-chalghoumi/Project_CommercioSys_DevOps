@@ -10,7 +10,8 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@CrossOrigin(origins = "*")
+@RequestMapping("/")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ProductController {
 
     private final IProductService productService;
@@ -43,4 +44,5 @@ public class ProductController {
     void deleteProduct(@PathVariable Long id){
         productService.deleteProduct(id);
     }
+
 }
