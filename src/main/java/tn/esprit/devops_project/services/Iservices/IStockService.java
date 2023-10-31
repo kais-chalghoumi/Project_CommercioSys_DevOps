@@ -10,4 +10,5 @@ public interface IStockService {
     Stock retrieveStock(Long id);
     List<Stock> retrieveAllStock();
 
+
 }

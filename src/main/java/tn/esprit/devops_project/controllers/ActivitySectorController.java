@@ -40,4 +40,5 @@ public class ActivitySectorController {
     ActivitySector retrieveActivitySector(@PathVariable Long id){
         return activitySectorService.retrieveActivitySector(id);
     }
+
 }

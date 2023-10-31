@@ -10,6 +10,8 @@ import tn.esprit.devops_project.entities.Supplier;
 
 import java.util.Date;
 import java.util.List;
+
+@Repository
 public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
 
 	

@@ -51,4 +51,5 @@ public class ProductServiceImpl implements IProductService {
     public List<Product> retreiveProductStock(Long id) {
         return productRepository.findByStockIdStock(id);
     }
+
 }

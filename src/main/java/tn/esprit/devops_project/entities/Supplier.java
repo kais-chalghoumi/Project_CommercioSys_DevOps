@@ -30,7 +30,5 @@ public class Supplier implements Serializable {
 	private transient Set<Invoice> invoices;
 	@ManyToMany
 	private Set<ActivitySector> activitySectors;
-    
-//123456
 	
 }

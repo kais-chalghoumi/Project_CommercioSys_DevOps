@@ -30,5 +30,4 @@ public class StockController {
         return stockService.retrieveAllStock();
     }
 
-
 }

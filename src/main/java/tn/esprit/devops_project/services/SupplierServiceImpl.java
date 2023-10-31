@@ -45,5 +45,4 @@ public class SupplierServiceImpl implements ISupplierService {
 		return supplierRepository.findById(supplierId).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + supplierId));
 	}
 
-
 }

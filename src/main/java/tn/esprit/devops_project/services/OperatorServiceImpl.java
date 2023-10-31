@@ -30,7 +30,6 @@ public class OperatorServiceImpl implements IOperatorService {
 	@Override
 	public void deleteOperator(Long id) {
 		operatorRepository.deleteById(id);
-		
 	}
 
 	@Override

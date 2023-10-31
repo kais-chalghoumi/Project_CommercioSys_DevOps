@@ -22,6 +22,7 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Invoice implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -40,5 +41,4 @@ public class Invoice implements Serializable {
     @JsonIgnore
     Supplier supplier;
 
-	
 }
