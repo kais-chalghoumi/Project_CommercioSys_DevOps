@@ -1,14 +1,9 @@
-# Utilisez une image de base pour Java (par exemple, OpenJDK)
-FROM openjdk:1.8
+FROM openjdk:8-jdk-alpine
 
-# Définissez le répertoire de travail
-
-
-# Copiez le jar de votre application Spring dans l'image Docker
-COPY target/DevOps_Project-0.0.1-SNAPSHOT.jar app.jar
-
-# Exposez le port sur lequel votre application écoute
 EXPOSE 8083
 
-# Commande pour exécuter l'application Spring Boot
-CMD ["java", "-jar", "app.jar"]
+COPY target/DevOps_Project-0.0.1-SNAPSHOT.jar  DevOps_Project-0.0.1-SNAPSHOT.jar
+#ADD target/DevOps_Project-0.0.1-SNAPSHOT.jar DevOps_Project-0.0.1-SNAPSHOT.jar
+#ADD http://192.168.0.117:8081/repository/maven-releases/tn/esprit/DevOps_Project/0.0.1/DevOps_Project-0.0.1-SNAPSHOT.jar DevOps_Project-0.0.1-SNAPSHOT.jar
+
+ENTRYPOINT ["java", "-jar", "/DevOps_Project-0.0.1-SNAPSHOT.jar"]
