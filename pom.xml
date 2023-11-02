@@ -50,14 +50,7 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 		
-<!--		<dependency>-->
-<!--		  <groupId>org.mockito</groupId>-->
-<!--		  <artifactId>mockito-core</artifactId>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--		  <groupId>junit</groupId>-->
-<!--		  <artifactId>junit</artifactId>-->
-<!--		</dependency>-->
+
 	</dependencies>
 
 	<build>
@@ -76,5 +69,12 @@
 			</plugin>
 		</plugins>
 	</build>
+	<distributionManagement>
+		<repository>
+			<id>deploymentRepo</id>
+			<name>Nexus Repository</name>
+			<url>http://192.168.33.10:8081/repository/maven-releases/</url>
+		</repository>
+	</distributionManagement>
 
 </project>
