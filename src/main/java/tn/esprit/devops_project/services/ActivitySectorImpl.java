@@ -12,30 +12,6 @@ import java.util.List;
 @AllArgsConstructor
 public class ActivitySectorImpl implements IActivitySector {
 
-    ActivitySectorRepository activitySectorRepository;
-    @Override
-    public List<ActivitySector> retrieveAllActivitySectors() {
-        return activitySectorRepository.findAll();
-    }
 
-    @Override
-    public ActivitySector addActivitySector(ActivitySector activitySector) {
-        return activitySectorRepository.save(activitySector);
-    }
-
-    @Override
-    public void deleteActivitySector(Long id) {
-        activitySectorRepository.deleteById(id);
-    }
-
-    @Override
-    public ActivitySector updateActivitySector(ActivitySector activitySector) {
-        return activitySectorRepository.save(activitySector);
-    }
-
-    @Override
-    public ActivitySector retrieveActivitySector(Long id) {
-        return activitySectorRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid activitySector Id:" + id));
-    }
 
 }

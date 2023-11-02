@@ -3,6 +3,7 @@ package tn.esprit.devops_project.services;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import tn.esprit.devops_project.dto.SupplierDto;
 import tn.esprit.devops_project.entities.Supplier;
 import tn.esprit.devops_project.repositories.SupplierRepository;
 import tn.esprit.devops_project.services.Iservices.ISupplierService;
@@ -22,16 +23,13 @@ public class SupplierServiceImpl implements ISupplierService {
 		return supplierRepository.findAll();
 	}
 
-
 	@Override
-	public Supplier addSupplier(Supplier supplier) {
-		return supplierRepository.save(supplier);
+	public SupplierDto addUpdateSupplier(SupplierDto s) {
+		supplierRepository.save(SupplierDto.toEntity(s));
+
+		return s;
 	}
 
-	@Override
-	public Supplier updateSupplier(Supplier supplier) {
-		return  supplierRepository.save(supplier);
-	}
 
 	@Override
 	public void deleteSupplier(Long supplierId) {
