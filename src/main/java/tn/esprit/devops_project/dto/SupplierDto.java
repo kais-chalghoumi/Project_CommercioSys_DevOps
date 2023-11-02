@@ -25,7 +25,7 @@ public class SupplierDto {
     @Enumerated(EnumType.STRING)
     SupplierCategory supplierCategory;
     @JsonIgnore
-    private transient Set<Invoice> invoices;
+    private  Set<Invoice> invoices;
 
 
 
