@@ -19,7 +19,7 @@ services:
     depends_on:
       - mysqldb
     restart: on-failure
-    image: chalghoumikais/devopsprojectback.jar
+    image: chalghoumikais/devopsprojectback
     ports:
       - "8083:8083"
     container_name: Back
