@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3'
 
 services:
   mysqldb:
@@ -33,4 +33,5 @@ services:
       }'
     volumes:
       - .m2:/root/.m2
-
+networks:
+  backend-network:
