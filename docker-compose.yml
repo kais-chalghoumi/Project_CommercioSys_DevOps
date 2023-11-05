@@ -18,10 +18,10 @@ services:
   Back:
     depends_on:
       - mysqldb
+    restart: on-failure
     image: chalghoumikais/devopsprojectback.jar
     ports:
       - "8083:8083"
-    restart: on-failure
     container_name: Back
     environment:
       SPRING_APPLICATION_JSON: '{
