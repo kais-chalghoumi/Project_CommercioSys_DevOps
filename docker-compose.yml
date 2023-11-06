@@ -5,7 +5,7 @@ services:
     image: chalghoumikais/devopsprojectback:1.0.0
     container_name: back-devops-project
     ports:
-      - "8083:8083"
+      - "8089:8089"
     build:
       context: .
       dockerfile: ./Dockerfile
