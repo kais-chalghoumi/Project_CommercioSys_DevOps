@@ -1,40 +1,50 @@
 version: '3.8'
 
 services:
-  mysqldb:
-    image: mysql:latest
-    restart: unless-stopped
-    ports:
-      - "3306:3306"
-    environment:
-      MYSQL_DATABASE: devops
-      MYSQL_ALLOW_EMPTY_PASSWORD: yes
-    volumes:
-      - db:/var/lib/mysql
-#    networks:
-#      - backend-network
-
-  Back:
-    depends_on:
-      - mysqldb
+  DevopsBack:
     image: chalghoumikais/devopsprojectback:1.0.0
-    container_name: devopsprojectback
-    restart: on-failure
+    container_name: back-devops-project
     ports:
       - "8083:8083"
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     environment:
-      SPRING_APPLICATION_JSON: '{
-        "spring.datasource.url" : "jdbc:mysql://mysqldb:3306/devops?createDatabaseIfNotExist=true",
-        "spring.datasource.username" : "root",
-        "spring.datasource.password" : "",
-        "spring.jpa.hibernate.ddl-auto" : "update",
-        "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL8Dialect"
-      }'
+      SPRING_DATASOURCE_URL : jdbc:mysql://mysqldb:3306/devops?createDatabaseIfNotExist=true,
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD:
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+    depends_on:
+      - mysqldb
+    networks:
+      - devops-network
+    restart: on-failure
     volumes:
-      - .m2:/root/.m2
+      - back-devops-project-data:/back-devops-project-data
+
+  mysqldb:
+    image: "mysql:5.6"
+    container_name: mysql-devops-project
+    environment:
+      MYSQL_DATABASE: devops
+      MYSQL_ROOT_PASSWORD:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+    networks:
+      - devops-network
+    volumes:
+      - mysql_data:/opt/mysql/data
+      - mysql_extenstions:/opt/mysql/extensions
+      - mysql_logs:/mysql/logs
+
+networks:
+  devops-network:
 
 volumes:
-  db:
-
-#networks:
-#  backend-network:
+  gestion-station-ski-data:
+  mysql_data:
+  mysql_extenstions:
+  mysql_logs:
