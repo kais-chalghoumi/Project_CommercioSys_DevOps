@@ -44,7 +44,7 @@ networks:
   devops-network:
 
 volumes:
-  gestion-station-ski-data:
+  back-devops-project-data:
   mysql_data:
   mysql_extenstions:
   mysql_logs:
