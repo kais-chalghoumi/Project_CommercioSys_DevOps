@@ -38,6 +38,13 @@ class OperatorServiceImplMockitoTest {
     }
 
     @Test
+    void retrieveOperator() {
+        Mockito.when(operatorRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(operator));
+        Operator operator1 = operatorService.retrieveOperator(100L);
+        Assertions.assertNotNull(operator1);
+    }
+
+    @Test
     void addOperator() {
         Mockito.when(operatorRepository.save(Mockito.any(Operator.class))).thenReturn(operator);
         Operator result = operatorService.addOperator(operator);
@@ -59,13 +66,6 @@ class OperatorServiceImplMockitoTest {
         Assertions.assertEquals(operator.getIdOperateur(), updatedOperator.getIdOperateur());
         Assertions.assertEquals(operator.getFname(), updatedOperator.getFname());
         Mockito.verify(operatorRepository, Mockito.times(1)).save(Mockito.any(Operator.class));
-    }
-
-    @Test
-    void retrieveOperator() {
-        Mockito.when(operatorRepository.findById(1L)).thenReturn(Optional.of(operator));
-        Operator operator1 = operatorService.retrieveOperator(1L);
-        Assertions.assertNotNull(operator1);
     }
 
 }

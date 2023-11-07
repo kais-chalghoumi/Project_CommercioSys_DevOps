@@ -1,79 +1,84 @@
 package tn.esprit.devops_project.services;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import tn.esprit.devops_project.entities.Operator;
 import tn.esprit.devops_project.services.Iservices.IOperatorService;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
+@Slf4j
+@Transactional
 @TestMethodOrder(OrderAnnotation.class)
 class OperatorServiceImplJUnitTest {
 
     @Autowired
     IOperatorService operatorService;
 
+    Operator operator1 = new Operator(null,"test1","JUnit5","DevOps1",null);
+    Operator operator2 = new Operator(null,"test2","JUnit5","DevOps2",null);
+
+    @Test
+    @Order(0)
+    void addOperator() {
+        Operator res = operatorService.addOperator(operator1);
+        log.info(res.toString());
+    }
+
     @Test
     @Order(1)
-    void retrieveAllOperators() {
-        List<Operator> operatorList = operatorService.retrieveAllOperators();
-        Assertions.assertEquals(3, operatorList.size());
+    void retrieveOperator() {
+        operatorService.addOperator(operator1);
+        Operator res = operatorService.retrieveOperator(operator1.getIdOperateur());
+        log.info(res.toString());
+        Assertions.assertEquals(operator1,res);
     }
 
     @Test
     @Order(2)
-    void addOperator() {
-        int nbre = operatorService.retrieveAllOperators().size();
-        Operator operator = new Operator();
-        operatorService.addOperator(operator);
+    void retrieveAllOperators() {
+        operatorService.addOperator(operator1);
+        operatorService.addOperator(operator2);
         List<Operator> operatorList = operatorService.retrieveAllOperators();
-        Assertions.assertEquals(nbre+1, operatorList.size());
-        operatorService.deleteOperator(operator.getIdOperateur());
+        log.info(operatorList.toString());
+        Assertions.assertEquals(2, operatorList.size());
     }
 
     @Test
     @Order(3)
     void deleteOperator() {
-        Operator operator = new Operator();
-        operatorService.addOperator(operator);
-        int nbre = operatorService.retrieveAllOperators().size();
-        operatorService.deleteOperator(operator.getIdOperateur());
-        List<Operator> operatorList = operatorService.retrieveAllOperators();
-        Assertions.assertEquals(nbre-1, operatorList.size());
+        operatorService.addOperator(operator1);
+        operatorService.deleteOperator(operator1.getIdOperateur());
+        Assertions.assertThrows(NullPointerException.class, () -> {
+            operatorService.retrieveOperator(operator1.getIdOperateur());
+        });
     }
 
     @Test
     @Order(4)
     void updateOperator() {
-        Operator operator = new Operator();
-        operatorService.addOperator(operator);
-        operator.setFname("fname1");
-        operator.setLname("lname1");
-        operator.setPassword("password1");
-        operatorService.updateOperator(operator);
-        Operator operatorUpdated = operatorService.retrieveOperator(operator.getIdOperateur());
-        Assertions.assertEquals(operatorUpdated.getFname(),"fname1");
-        Assertions.assertEquals(operatorUpdated.getLname(),"lname1");
-        Assertions.assertEquals(operatorUpdated.getPassword(),"password1");
-        operatorService.deleteOperator(operator.getIdOperateur());
-    }
-
-    @Test
-    @Order(5)
-    void retrieveOperator() {
-        Operator operator = new Operator();
-        operatorService.addOperator(operator);
-        List<Operator> list = new ArrayList<>();
-        list.add(operatorService.retrieveOperator(operator.getIdOperateur()));
-        Assertions.assertEquals(1,list.size());
-        operatorService.deleteOperator(operator.getIdOperateur());
+        operatorService.addOperator(operator1);
+        operator1.setFname("updated1");
+        operator1.setLname("updated2");
+        operator1.setPassword("updated3");
+        operatorService.updateOperator(operator1);
+        Operator operatorUpdated = operatorService.retrieveOperator(operator1.getIdOperateur());
+        log.info(operator1.toString());
+        log.info(operatorUpdated.toString());
+        Assertions.assertEquals(operatorUpdated.getFname(),"updated1");
+        Assertions.assertEquals(operatorUpdated.getLname(),"updated2");
+        Assertions.assertEquals(operatorUpdated.getPassword(),"updated3");
     }
 
 }
