@@ -1,0 +1,28 @@
+version: '3'
+services:
+  springboot-app:
+    image: azizlimem/alpine:0.1-SPRING-Compose
+    build: .
+    ports:
+      - "8083:8083"
+    depends_on:
+      - mysql
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=3306
+      - MYSQL_USER=root
+    networks:
+      - mynetwork
+
+  mysql:
+    image: mysql:8.2.0
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: devops
+    ports:
+      - "3306:3306"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
