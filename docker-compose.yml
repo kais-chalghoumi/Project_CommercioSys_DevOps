@@ -1,0 +1,27 @@
+version: "3"
+services:
+  spring-kaddemproject:
+    image: yermanimohamed/kaddem_project
+    ports:
+      - "8089:8089"
+    networks:
+      - kaddem
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb/devops
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: mysql:8
+    volumes:
+      -  /home/mysql/yermanidata:/var/lib/mysql:rw
+    networks:
+      - kaddem
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=devops
+
+networks:
+  kaddem:
