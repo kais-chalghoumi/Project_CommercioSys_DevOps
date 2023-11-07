@@ -14,7 +14,7 @@ import java.util.List;
 public class OperatorController {
 
 	IOperatorService operatorService;
-	
+
 	@GetMapping("/operator")
 	public List<Operator> getOperators() {
 		return operatorService.retrieveAllOperators();

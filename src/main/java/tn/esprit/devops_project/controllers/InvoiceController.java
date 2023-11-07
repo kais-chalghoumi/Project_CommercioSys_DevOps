@@ -19,7 +19,7 @@ public class InvoiceController {
 
     @GetMapping("/invoice")
     public List<Invoice> getInvoices() {
-       return invoiceService.retrieveAllInvoices();
+        return invoiceService.retrieveAllInvoices();
     }
 
     @GetMapping("/invoice/{invoiceId}")

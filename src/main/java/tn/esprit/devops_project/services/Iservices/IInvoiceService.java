@@ -13,7 +13,7 @@ public interface IInvoiceService {
 	void cancelInvoice(Long id);
 
 	Invoice retrieveInvoice(Long id);
-	
+
 	void assignOperatorToInvoice(Long idOperator, Long idInvoice);
 
 	float getTotalAmountInvoiceBetweenDates(Date startDate, Date endDate);
