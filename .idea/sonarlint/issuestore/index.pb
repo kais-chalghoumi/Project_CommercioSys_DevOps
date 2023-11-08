@@ -16,3 +16,7 @@ z
 Jsrc/main/java/tn/esprit/devops_project/repositories/ProductRepository.java,b\5\b5442c3a35db4f3346af2ab6777811a998d9f63a
 ~
 Nsrc/test/java/tn/esprit/devops_project/repositories/ProductRepositoryTest.java,0\2\023003f465ce3888a6779eaf8bc4c4e1dc60c9f7
+t
+Dsrc/main/java/tn/esprit/devops_project/entities/ProductCategory.java,d\d\dd1e453a6bfcb883b392f90ed6777897d2a8274a
+B
+docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
