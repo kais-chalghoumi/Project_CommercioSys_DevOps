@@ -20,3 +20,5 @@ t
 Dsrc/main/java/tn/esprit/devops_project/entities/ProductCategory.java,d\d\dd1e453a6bfcb883b392f90ed6777897d2a8274a
 B
 docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
+l
+<src/main/java/tn/esprit/devops_project/entities/Product.java,a\d\adca481014356231ba614fc196e28a014a014f2c
