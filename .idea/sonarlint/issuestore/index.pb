@@ -14,3 +14,13 @@ B
 Ksrc/test/java/tn/esprit/devops_project/services/InvoiceServiceImplTest.java,e\9\e91afc60b9cc1e3f793de195788726f919f8d20b
 É
 Ssrc/test/java/tn/esprit/devops_project/services/InvoiceServiceImplTestStatique.java,3\5\3533c08ddb9357ea0c12e89d7e73f3b6ce837540
+|
+Lsrc/test/java/tn/esprit/devops_project/services/OperatorServiceImplTest.java,1\e\1e0bd0a2bd88804ff57e5e5d2d66f6131a887d85
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+Å
+Qsrc/test/java/tn/esprit/devops_project/services/InvoiceServiceImplStaticTest.java,0\7\07b43aa881025f4a16f7e4d6ec5515cbce892570
+Ñ
+Tsrc/test/java/tn/esprit/devops_project/services/InvoiceServiceImplTestDynamique.java,1\5\153e9e944d69e5097da8d7abbdcdb0efd30309e3
+t
+Dsrc/main/java/tn/esprit/devops_project/DevOpsProjectApplication.java,8\8\88918f95341888f337f58a7d05c214b15f167014
