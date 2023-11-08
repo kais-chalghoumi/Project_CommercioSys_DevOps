@@ -19,7 +19,6 @@ import java.util.List;
 
 @SpringBootTest
 @Slf4j
-@Transactional
 @TestMethodOrder(OrderAnnotation.class)
 class OperatorServiceImplJUnitTest {
 
@@ -30,6 +29,7 @@ class OperatorServiceImplJUnitTest {
     Operator operator2 = new Operator(null,"test2","JUnit5","DevOps2",null);
 
     @Test
+    @Transactional
     @Order(0)
     void addOperator() {
         Operator res = operatorService.addOperator(operator1);
@@ -37,6 +37,7 @@ class OperatorServiceImplJUnitTest {
     }
 
     @Test
+    @Transactional
     @Order(1)
     void retrieveOperator() {
         operatorService.addOperator(operator1);
@@ -46,6 +47,7 @@ class OperatorServiceImplJUnitTest {
     }
 
     @Test
+    @Transactional
     @Order(2)
     void retrieveAllOperators() {
         operatorService.addOperator(operator1);
@@ -56,6 +58,7 @@ class OperatorServiceImplJUnitTest {
     }
 
     @Test
+    @Transactional
     @Order(3)
     void deleteOperator() {
         operatorService.addOperator(operator1);
@@ -66,6 +69,7 @@ class OperatorServiceImplJUnitTest {
     }
 
     @Test
+    @Transactional
     @Order(4)
     void updateOperator() {
         operatorService.addOperator(operator1);
