@@ -1,19 +1,0 @@
-
-»
-java:S3577"Rename class "InvoiceServiceImplTestStatique" to match the regular expression: '^((Test|IT)[a-zA-Z0-9_]+|[A-Z][a-zA-Z0-9_]*(Test|Tests|TestCase|IT|ITCase))$'(åª†±8éû­Ôº1
-@
-java:S5786$"Remove this 'public' modifier.(Â¡à÷üÿÿÿÿ8ëû­Ôº1
-;
-java:S5786A"Remove this 'public' modifier.(ëÆ›ë8ìû­Ôº1
-;
-java:S5786T"Remove this 'public' modifier.(è¯Ûò8ìû­Ôº1
-;
-java:S5786n"Remove this 'public' modifier.(åÔŒ8íû­Ôº1
-:
-java:S5786y"Remove this 'public' modifier.(ÛÅÙ8íû­Ôº1
-x
-java:S3415h"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(ÈİŞôûÿÿÿÿ8öû­Ôº1
-s
-java:S3415t"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(Ç½ãö8÷û­Ôº1
-t
-java:S3415‚"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(Ô¿Ù†8úû­Ôº1

@@ -1,8 +1,0 @@
-
-m
-java:S1192""RDefine a constant instead of duplicating this literal "Invoice not found" 3 times.(±´ÆÙüÿÿÿÿ
-r	java:S117>"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠØâÌüÿÿÿÿ8‘®ªÔº1
-^
-java:S49733"<Strings and Boxed types should be compared using "equals()".(€ßøïúÿÿÿÿ8äÕ©Ôº1
-c
-java:S1128"GRemove this unused import 'tn.esprit.devops_project.entities.Supplier'.(½ÈÍv8Ò–©Ôº1

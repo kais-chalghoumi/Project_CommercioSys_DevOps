@@ -10,10 +10,6 @@ Psrc/main/java/tn/esprit/devops_project/controllers/ActivitySectorController.jav
 Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
 B
 docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
-{
-Ksrc/test/java/tn/esprit/devops_project/services/InvoiceServiceImplTest.java,e\9\e91afc60b9cc1e3f793de195788726f919f8d20b
-ƒ
-Ssrc/test/java/tn/esprit/devops_project/services/InvoiceServiceImplTestStatique.java,3\5\3533c08ddb9357ea0c12e89d7e73f3b6ce837540
 |
 Lsrc/test/java/tn/esprit/devops_project/services/OperatorServiceImplTest.java,1\e\1e0bd0a2bd88804ff57e5e5d2d66f6131a887d85
 7

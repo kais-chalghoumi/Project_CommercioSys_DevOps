@@ -10,6 +10,10 @@
         <module name="DevOps_Project" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="DevOps_Project" target="1.8" />
+      <module name="DevOps_Project_Back" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
