@@ -1,41 +1,53 @@
-  version: "3.9"
-  services:
-    gestion-station-ski:
-      image: devopsprojectback
-      container_name: devopsprojectback
-      ports:
-        - "8083:8083"
-      restart: always
-      build:
-        context: .
-        dockerfile: ./Dockerfile
-      environment:
-        SPRING_DATASOURCE_URL: jdbc:mysql://mysql-container:3306/devops?autoReconnect=true&useSSL=false
-        SPRING_DATASOURCE_USERNAME: root
-        SPRING_DATASOURCE_PASSWORD:
-        SPRING_JPA_HIBERNATE_DDL_AUTO: update
-        SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
-      depends_on:
-        - mysql-container
-      networks:
-        - spring-network
+version: '3.8'
 
-    mysql-container:
-      image: "mysql:5.6"
-      container_name: mysql-container
-      environment:
-        MYSQL_ROOT_PASSWORD: root
-        #MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-        MYSQL_DATABASE: devops
-      ports:
-        - "3306:3306"
-      restart: unless-stopped
-      networks:
-        - spring-network
+services:
+  DevopsBack:
+    image: chalghoumikais/devopsprojectback:1.0.0
+    container_name: back-devops-project
+    ports:
+      - "8089:8089"
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/devops?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD:
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+    depends_on:
+      - mysqldb
+    networks:
+      - devops-network
+    restart: on-failure
+    volumes:
+      - back-devops-project-data:/back-devops-project-data
 
+  mysqldb:
+    image: "mysql:5.6"
+    container_name: mysql-devops-project
+    environment:
+      MYSQL_DATABASE: devops
+      MYSQL_ROOT_PASSWORD:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+    networks:
+      - devops-network
+    volumes:
+      - mysql_data:/opt/mysql/data
+      - mysql_extenstions:/opt/mysql/extensions
+      - mysql_logs:/mysql/logs
 
-  networks:
-    spring-network:
+networks:
+  devops-network:
+
+volumes:
+  back-devops-project-data:
+  mysql_data:
+  mysql_extenstions:
+  mysql_logs:
 
 
 
