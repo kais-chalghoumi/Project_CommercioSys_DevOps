@@ -12,6 +12,7 @@ import tn.esprit.devops_project.repositories.ActivitySectorRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -44,18 +45,29 @@ class ActivitySectorImplMockitoTest {
     void addActivitySector() {
         Mockito.when(activitySectorRepository.save(Mockito.any(ActivitySector.class))).thenReturn(activitySector);
         ActivitySector sectoract = activitySectorService.addActivitySector(activitySector);
-        Assertions.assertEquals(1L,sectoract.getIdSecteurActivite());
+        Assertions.assertEquals("touta",sectoract.getCodeSecteurActivite());
     }
 
     @Test
     void deleteActivitySector() {
+        Mockito.doNothing().when(activitySectorRepository).deleteById(Mockito.anyLong());
+        activitySectorService.deleteActivitySector(100L);
+        Mockito.verify(activitySectorRepository,Mockito.times(1)).deleteById(100L);
     }
 
     @Test
     void updateActivitySector() {
+        Mockito.when(activitySectorRepository.save(Mockito.any(ActivitySector.class))).thenReturn(activitySector);
+        ActivitySector sectoupdated = activitySectorService.updateActivitySector(activitySector);
+        Assertions.assertEquals(activitySector.getIdSecteurActivite(),sectoupdated.getIdSecteurActivite());
+        Mockito.verify(activitySectorRepository,Mockito.times(1)).save(Mockito.any(ActivitySector.class));
+
     }
 
     @Test
     void retrieveActivitySector() {
+        Mockito.when(activitySectorRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(activitySector));
+        ActivitySector sector = activitySectorService.retrieveActivitySector(100L);
+        Assertions.assertNotNull(sector);
     }
 }
