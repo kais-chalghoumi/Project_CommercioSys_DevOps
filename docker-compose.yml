@@ -10,7 +10,7 @@ services:
       context: .
       dockerfile: ./Dockerfile
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://192.168.1.62:3306/devops?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/devops?createDatabaseIfNotExist=true
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD:
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
