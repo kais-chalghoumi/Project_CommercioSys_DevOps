@@ -28,6 +28,11 @@ public class InvoiceServiceImpl implements IInvoiceService {
 	public List<Invoice> retrieveAllInvoices() {
 		return invoiceRepository.findAll();
 	}
+
+	@Override
+	public Invoice addInvoice(Invoice invoice){
+		return invoiceRepository.save(invoice);
+	}
 	@Override
 	public void cancelInvoice(Long invoiceId) {
 		// method 01
