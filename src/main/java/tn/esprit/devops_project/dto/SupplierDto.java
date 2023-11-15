@@ -24,8 +24,7 @@ public class SupplierDto {
     String label;
     @Enumerated(EnumType.STRING)
     SupplierCategory supplierCategory;
-    @JsonIgnore
-    private  Set<Invoice> invoices;
+
 
 
 
@@ -40,18 +39,6 @@ public class SupplierDto {
                 .label(supplierDto.getLabel())
                 .build();
     }
-    public static SupplierDto toDto(Supplier supplier){
-        if(supplier==null){
-            return null;
-        }
 
-
-
-        return  SupplierDto.builder()
-                .idSupplier(supplier.getIdSupplier())
-                .code(supplier.getCode())
-                .label(supplier.getLabel())
-                .build();
-    }
 
 }
