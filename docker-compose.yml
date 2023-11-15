@@ -23,5 +23,14 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=devops
 
+  front-kaddem:
+    image: yermanimohamed/front
+    ports:
+      - "80:80"
+    networks:
+      - kaddem
+    depends_on:
+      - spring-kaddemproject
+      - mysqldb
 networks:
   kaddem:
