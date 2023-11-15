@@ -3,7 +3,7 @@ version: '3.8'
 services:
   DevopsBack:
     image: wathek28/devopsprojectback:1.0.0
-    container_name: back-devops-project
+    container_name: back-devops-project-mth
     ports:
       - "8089:8089"
     build:
@@ -25,7 +25,7 @@ services:
 
   mysqldb:
     image: "mysql:5.6"
-    container_name: mysql-devops-projectmth
+    container_name: mysql-devops-project
     environment:
       MYSQL_DATABASE: devops
       MYSQL_ROOT_PASSWORD:
