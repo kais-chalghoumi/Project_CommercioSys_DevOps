@@ -25,7 +25,7 @@ services:
 
   mysqldb:
     image: "mysql:5.6"
-    container_name: mysql-devops-project
+    container_name: mysql-devops-projectmth
     environment:
       MYSQL_DATABASE: devops
       MYSQL_ROOT_PASSWORD:
