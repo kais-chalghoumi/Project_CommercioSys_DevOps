@@ -10,33 +10,33 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/")
+@RequestMapping("/activitySector")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ActivitySectorController {
 
     IActivitySector activitySectorService;
 
-    @GetMapping("/activitySector")
+    @GetMapping("/retrieveAllActivitySectors")
     List<ActivitySector> retrieveAllActivitySectors(){
         return activitySectorService.retrieveAllActivitySectors();
     }
 
-    @PostMapping("/activitySector")
+    @PostMapping("/addActivitySector")
     ActivitySector addActivitySector(@RequestBody ActivitySector activitySector){
         return activitySectorService.addActivitySector(activitySector);
     }
 
-    @DeleteMapping("/activitySector/{id}")
+    @DeleteMapping("/deleteActivitySector/{id}")
     void deleteActivitySector(@PathVariable Long id){
         activitySectorService.deleteActivitySector(id);
     }
 
-    @PutMapping("/activitySector")
+    @PutMapping("/updateActivitySector")
     ActivitySector updateActivitySector(@RequestBody ActivitySector activitySector){
         return activitySectorService.updateActivitySector(activitySector);
     }
 
-    @GetMapping("/activitySector/{id}")
+    @GetMapping("/retrieveActivitySector/{id}")
     ActivitySector retrieveActivitySector(@PathVariable Long id){
         return activitySectorService.retrieveActivitySector(id);
     }

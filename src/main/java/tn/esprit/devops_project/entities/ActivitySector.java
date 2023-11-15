@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 @Entity
+@ToString
 @Getter
 @Setter
 @AllArgsConstructor
@@ -26,6 +27,7 @@ public class ActivitySector  implements Serializable {
         String libelleSecteurActivite;
         @ManyToMany(mappedBy="activitySectors")
         @JsonIgnore
+        @ToString.Exclude
         private Set<Supplier> suppliers;
 
 }
