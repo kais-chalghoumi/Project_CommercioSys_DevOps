@@ -24,7 +24,7 @@ services:
       - back-devops-project-data:/back-devops-project-data
 
   mysqldb:
-    image: "chalghoumikais/mysql:5.6"
+    image: "mysql:5.6"
     container_name: mysql-devops-project
     environment:
       MYSQL_DATABASE: devops
