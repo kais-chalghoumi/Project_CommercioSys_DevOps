@@ -24,3 +24,5 @@ Dsrc/main/java/tn/esprit/devops_project/DevOpsProjectApplication.java,8\8\88918
 Nsrc/main/java/tn/esprit/devops_project/services/Iservices/IInvoiceService.java,8\c\8c8fd3f6e189aa3990e4b5aaa3733b0268ab9652
 y
 Isrc/main/java/tn/esprit/devops_project/controllers/InvoiceController.java,b\7\b789f8d8b81d2ce524da823355d6e6b9323a3d6f
+l
+<src/main/java/tn/esprit/devops_project/entities/Invoice.java,0\6\06bf048635c39fc1fde58597aac6d909860ffce7

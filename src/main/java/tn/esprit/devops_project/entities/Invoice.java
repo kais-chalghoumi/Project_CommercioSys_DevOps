@@ -35,6 +35,7 @@ public class Invoice implements Serializable {
 	@Temporal(TemporalType.DATE)
 	Date dateLastModificationInvoice;
 	Boolean archived;
+	@JsonIgnore
 	@OneToMany(mappedBy = "invoice")
 	Set<InvoiceDetail> invoiceDetails;
 	@ManyToOne
