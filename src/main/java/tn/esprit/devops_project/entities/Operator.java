@@ -17,7 +17,6 @@ import lombok.experimental.FieldDefaults;
 @Entity
 @Getter
 @Setter
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -33,7 +32,6 @@ public class Operator implements Serializable{
 	String password;
 	@OneToMany
 	@JsonIgnore
-	@ToString.Exclude
 	Set<Invoice> invoices;
 
 }

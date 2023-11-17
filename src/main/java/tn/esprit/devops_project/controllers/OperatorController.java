@@ -9,33 +9,33 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/operator")
+@RequestMapping("/")
 @CrossOrigin(origins = "http://localhost:4200")
 public class OperatorController {
 
 	IOperatorService operatorService;
 
-	@GetMapping("/getOperators")
+	@GetMapping("/operator")
 	public List<Operator> getOperators() {
 		return operatorService.retrieveAllOperators();
 	}
 
-	@GetMapping("/retrieveoperator/{operatorId}")
+	@GetMapping("/operator/{operatorId}")
 	public Operator retrieveoperator(@PathVariable Long operatorId) {
 		return operatorService.retrieveOperator(operatorId);
 	}
 
-	@PostMapping("/addOperator")
+	@PostMapping("/operator")
 	public Operator addOperator(@RequestBody Operator operator) {
 		return operatorService.addOperator(operator);
 	}
 
-	@DeleteMapping("/removeOperator/{operatorId}")
+	@DeleteMapping("/operatot/{operatorId}")
 	public void removeOperator(@PathVariable Long operatorId) {
 		operatorService.deleteOperator(operatorId);
 	}
 
-	@PutMapping("/modifyOperateur")
+	@PutMapping("/operator")
 	public Operator modifyOperateur(@RequestBody Operator operator) {
 		return operatorService.updateOperator(operator);
 	}
