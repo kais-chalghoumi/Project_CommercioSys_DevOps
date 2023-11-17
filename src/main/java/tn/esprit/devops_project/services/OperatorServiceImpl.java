@@ -42,9 +42,4 @@ public class OperatorServiceImpl implements IOperatorService {
 		return operatorRepository.findById(id).orElseThrow(() -> new NullPointerException("Operator not found"));
 	}
 
-//	@Override
-//	public Long findLastOperatorID() {
-//		return retrieveAllOperators().get(retrieveAllOperators().size()-1).getIdOperateur();
-//	}
-
 }

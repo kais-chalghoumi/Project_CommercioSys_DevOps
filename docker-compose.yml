@@ -1,28 +1,52 @@
-version: '3'
-services:
-  springboot-app:
-    image: azizlimem/alpine:0.1-SPRING-Compose
-    build: .
-    ports:
-      - "8083:8083"
-    depends_on:
-      - mysql
-    environment:
-      - MYSQL_HOST=mysql
-      - MYSQL_PORT=3306
-      - MYSQL_USER=root
-    networks:
-      - mynetwork
+version: '3.8'
 
-  mysql:
-    image: mysql:8.2.0
+services:
+  DevopsBack:
+    image: chalghoumikais/devopsprojectback:1.0.0
+    #image: wathek28/devopsprojectback:1.0.0
+    #image: azizlimem/alpine:0.1-SPRING-Compose
+    container_name: back-devops-project
+    ports:
+      - "8089:8089"
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      SPRING_DATASOURCE_URL : jdbc:mysql://mysqldb:3306/devops?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD:
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+    depends_on:
+      - mysqldb
+    networks:
+      - devops-network
+    restart: on-failure
+    volumes:
+      - back-devops-project-data:/back-devops-project-data
+
+  mysqldb:
+    image: "mysql:5.6"
+    container_name: mysql-devops-project
+    environment:
       MYSQL_DATABASE: devops
+      MYSQL_ROOT_PASSWORD:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     ports:
       - "3306:3306"
+    restart: unless-stopped
     networks:
-      - mynetwork
+      - devops-network
+    volumes:
+      - mysql_data:/opt/mysql/data
+      - mysql_extenstions:/opt/mysql/extensions
+      - mysql_logs:/mysql/logs
 
 networks:
-  mynetwork:
+  devops-network:
+
+volumes:
+  back-devops-project-data:
+  mysql_data:
+  mysql_extenstions:
+  mysql_logs:
