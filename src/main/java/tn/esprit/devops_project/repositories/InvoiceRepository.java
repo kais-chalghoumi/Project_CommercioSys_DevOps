@@ -14,11 +14,11 @@ import java.util.List;
 @Repository
 public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
 
-	
+
 	@Query("SELECT i FROM Invoice i where i.supplier=:supplier and i.archived=false")
 	public List<Invoice> retrieveInvoicesBySupplier(@Param("supplier") Supplier supplier);
 
-	
+
 	@Query("SELECT sum(i.amountInvoice) FROM Invoice i where  i.dateCreationInvoice between :startDate"
 			+ " and :endDate and i.archived=false")
 	float getTotalAmountInvoiceBetweenDates(@Param("startDate") Date startDate, @Param("endDate") Date endDate);
@@ -26,5 +26,5 @@ public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
 	@Modifying
 	@Query("update Invoice i set i.archived=true where i.idInvoice=?1")
 	void updateInvoice(Long id);
-	
+
 }

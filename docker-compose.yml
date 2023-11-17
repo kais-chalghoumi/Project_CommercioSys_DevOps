@@ -2,15 +2,18 @@ version: '3.8'
 
 services:
   DevopsBack:
-    image: moeeteez/backend
-    container_name: backend
+    image: chalghoumikais/devopsprojectback:1.0.0
+    #image: wathek28/devopsprojectback:1.0.0
+    #image: azizlimem/alpine:0.1-SPRING-Compose
+    #image: moeeteez/backend
+    container_name: back-devops-project
     ports:
-      - "8082:8082"
+      - "8089:8089"
     build:
       context: .
       dockerfile: ./Dockerfile
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/devops?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_URL : jdbc:mysql://mysqldb:3306/devops?createDatabaseIfNotExist=true
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD:
       SPRING_JPA_HIBERNATE_DDL_AUTO: update

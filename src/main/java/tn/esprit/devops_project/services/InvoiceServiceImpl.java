@@ -12,8 +12,7 @@ import tn.esprit.devops_project.repositories.OperatorRepository;
 import tn.esprit.devops_project.repositories.SupplierRepository;
 import tn.esprit.devops_project.services.Iservices.IInvoiceService;
 
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service
 @Slf4j
@@ -28,6 +27,11 @@ public class InvoiceServiceImpl implements IInvoiceService {
 	@Override
 	public List<Invoice> retrieveAllInvoices() {
 		return invoiceRepository.findAll();
+	}
+
+	@Override
+	public Invoice addInvoice(Invoice invoice){
+		return invoiceRepository.save(invoice);
 	}
 	@Override
 	public void cancelInvoice(Long invoiceId) {
@@ -47,15 +51,22 @@ public class InvoiceServiceImpl implements IInvoiceService {
 
 	@Override
 	public List<Invoice> getInvoicesBySupplier(Long idSupplier) {
-		Supplier supplier = supplierRepository.findById(idSupplier).orElseThrow(() -> new NullPointerException("Supplier not found"));
-		return (List<Invoice>) supplier.getInvoices();
+		List<Invoice> listInvoices = new ArrayList<>();
+		for ( Invoice inv : invoiceRepository.findAll() ){
+			if (inv.getSupplier().getIdSupplier() ==  idSupplier){
+				listInvoices.add(inv);
+			}
+		}
+		return  listInvoices;
 	}
 
 	@Override
 	public void assignOperatorToInvoice(Long idOperator, Long idInvoice) {
 		Invoice invoice = invoiceRepository.findById(idInvoice).orElseThrow(() -> new NullPointerException("Invoice not found"));
 		Operator operator = operatorRepository.findById(idOperator).orElseThrow(() -> new NullPointerException("Operator not found"));
-		operator.getInvoices().add(invoice);
+		Set<Invoice> Invoices = new HashSet<>();
+		Invoices.add(invoice);
+		operator.setInvoices(Invoices);
 		operatorRepository.save(operator);
 	}
 
