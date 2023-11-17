@@ -1,10 +1,7 @@
-FROM openjdk:11-jre-slim
-WORKDIR /app 
-EXPOSE 8089
+FROM openjdk:8-jdk-alpine
 
-COPY target/DevOps_Project-0.0.1-SNAPSHOT.jar /app/DevOps_Project-0.0.1-SNAPSHOT.jar
-#ADD target/DevOps_Project-0.0.1-SNAPSHOT.jar DevOps_Project-0.0.1-SNAPSHOT.jar
-#ADD http://192.168.0.117:8081/repository/maven-releases/tn/esprit/DevOps_Project/0.0.1/DevOps_Project-0.0.1-SNAPSHOT.jar DevOps_Project-0.0.1-SNAPSHOT.jar
+EXPOSE 8083
 
-ENTRYPOINT ["java", "-jar", "/app/DevOps_Project-0.0.1-SNAPSHOT.jar"]
+ADD http://192.168.0.117:8081/repository/maven-releases/tn/esprit/DevOps_Project/0.0.1/DevOps_Project-0.0.1.jar DevOps_Project-0.0.1.jar
 
+ENTRYPOINT ["java", "-jar", "/DevOps_Project-0.0.1.jar"]
