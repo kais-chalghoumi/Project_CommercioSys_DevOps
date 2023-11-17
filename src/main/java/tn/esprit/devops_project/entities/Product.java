@@ -3,7 +3,6 @@ package tn.esprit.devops_project.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-
 import javax.persistence.*;
 import java.io.Serializable;
 

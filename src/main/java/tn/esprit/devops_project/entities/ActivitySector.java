@@ -9,14 +9,16 @@ import java.io.Serializable;
 import java.util.Set;
 
 @Entity
+@ToString
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ActivitySector  implements Serializable {
-
-
+        /**
+         *
+         */
         private static final long serialVersionUID = 1L;
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +27,7 @@ public class ActivitySector  implements Serializable {
         String libelleSecteurActivite;
         @ManyToMany(mappedBy="activitySectors")
         @JsonIgnore
+        @ToString.Exclude
         private Set<Supplier> suppliers;
 
 }

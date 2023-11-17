@@ -31,5 +31,4 @@ public class InvoiceDetail implements Serializable {
 	@ManyToOne
 	@JsonIgnore
 	Invoice invoice;
-
 }

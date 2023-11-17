@@ -2,7 +2,6 @@ package tn.esprit.devops_project.entities;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;

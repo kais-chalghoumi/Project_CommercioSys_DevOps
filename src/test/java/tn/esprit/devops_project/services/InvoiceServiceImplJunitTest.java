@@ -8,13 +8,13 @@ import tn.esprit.devops_project.entities.Invoice;
 import tn.esprit.devops_project.entities.Operator;
 import tn.esprit.devops_project.repositories.InvoiceRepository;
 import tn.esprit.devops_project.repositories.OperatorRepository;
-
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
+
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class InvoiceServiceImplTestDynamique {
+public class InvoiceServiceImplJunitTest {
 
     @Autowired
     private InvoiceServiceImpl invoiceService;
@@ -31,13 +31,11 @@ public class InvoiceServiceImplTestDynamique {
         Assertions.assertEquals(2,listInvoices.size());
     }
 
-
     @Test
     public void testRetrieveInvoice() {
         Invoice invoice = invoiceService.retrieveInvoice((long)1);
         Assertions.assertEquals(500,invoice.getAmountInvoice());
     }
-
 
     @Test
     public void testGetTotalAmountInvoiceBetweenDates() {
@@ -47,18 +45,16 @@ public class InvoiceServiceImplTestDynamique {
         Date dateFin = Date.from(dateF.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
         float Amount = invoiceService.getTotalAmountInvoiceBetweenDates(dateDebut,dateFin);
         Assertions.assertEquals(1500,Amount);
-
     }
+
     @Test
     @Transactional
     public void testCancelInvoice(){
         Invoice invoice = invoiceService.retrieveInvoice((long)1);
         invoiceService.cancelInvoice(invoice.getIdInvoice());
         Assertions.assertEquals(true,invoice.getArchived());
-        //Réinitialiser la base de données
         invoice.setArchived(false);
         invoiceRepository.save(invoice);
-
     }
 
     @Test
@@ -75,9 +71,8 @@ public class InvoiceServiceImplTestDynamique {
         Invoice invoice = invoiceService.retrieveInvoice((long)1);
         invoiceService.assignOperatorToInvoice(operator.getIdOperateur(), invoice.getIdInvoice());
         Assertions.assertEquals(true,operator.getInvoices().contains(invoice));
-
-        //Réinitialiser la base de données
         operator.getInvoices().remove(invoice);
         operatorRepository.save(operator);
     }
+
 }
