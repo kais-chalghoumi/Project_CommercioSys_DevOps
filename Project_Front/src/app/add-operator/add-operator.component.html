@@ -1,0 +1,26 @@
+
+  <br><br>
+
+  <form #f="ngForm">
+  <div class="form-group">
+    <label>idOperateur</label>
+    <input type="number" class="form-control" name="idOperateur" placeholder="Enter idOperateur"  [(ngModel)]="operator.idOperateur"  #idOperateur="ngModel">
+  </div>
+  <br>
+  <div class="form-group">
+    <label>fname</label>
+    <input type="text" class="form-control" name="fname" placeholder="Enter fname" [(ngModel)]="operator.fname" #fname="ngModel">
+  </div>
+  <br>
+  <div class="form-group">
+    <label>lname</label>
+    <input type="text" class="form-control" name="lname" placeholder="Enter lname" [(ngModel)]="operator.lname" #lname="ngModel" >
+  </div>
+  <br>
+  <div class="form-group">
+    <label>password</label>
+    <input type="text" class="form-control" name="password" placeholder="Enter password" [(ngModel)]="operator.password">
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary" (click)="ajouter()" routerLink="/operator">Submit</button>
+</form>

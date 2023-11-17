@@ -1,0 +1,17 @@
+<br>
+<br>
+<h1>Operateurs</h1>
+<br><br>
+<div class="row">
+    <div class="col-md-4" *ngFor="let op of listOperator,let p=index">
+        <div class="card" style="width: 18rem; text-align: center; border-color: blue;" >
+            <img class="card-img-top" src="../assets/images.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ op.fname }}</h5>
+                <p class="card-text">lname: {{ op.lname }}</p>
+                <p class="card-text">password: {{ op.password }}</p>
+                <br><br>
+            </div>
+        </div>
+    </div>
+</div>
