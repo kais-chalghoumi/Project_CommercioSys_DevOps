@@ -36,12 +36,10 @@ public class SupplierServiceImpl implements ISupplierService {
 	@Override
 	public void deleteSupplier(Long supplierId) {
 		supplierRepository.deleteById(supplierId);
-
 	}
 
 	@Override
 	public Supplier retrieveSupplier(Long supplierId) {
-
 		return supplierRepository.findById(supplierId).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + supplierId));
 	}
 

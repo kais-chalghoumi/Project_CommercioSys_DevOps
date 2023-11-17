@@ -5,5 +5,7 @@ import org.springframework.stereotype.Repository;
 import tn.esprit.devops_project.entities.Stock;
 
 @Repository
-public interface StockRepository extends JpaRepository<Stock, Long> {}
+public interface StockRepository extends JpaRepository<Stock, Long> {
+
+}
 

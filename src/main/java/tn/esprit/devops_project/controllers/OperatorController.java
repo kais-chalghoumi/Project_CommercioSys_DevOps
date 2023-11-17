@@ -40,4 +40,5 @@ public class OperatorController {
 		return operatorService.updateOperator(operator);
 	}
 
+
 }

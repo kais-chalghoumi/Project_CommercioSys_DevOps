@@ -26,8 +26,10 @@ public class InvoiceDetail implements Serializable {
 	Long idInvoiceDetail;
 	int quantity;
 	float price;
+
 	@ManyToOne
 	Product product;
+
 	@ManyToOne
 	@JsonIgnore
 	Invoice invoice;

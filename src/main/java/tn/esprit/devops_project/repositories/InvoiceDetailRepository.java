@@ -6,5 +6,4 @@ import tn.esprit.devops_project.entities.InvoiceDetail;
 
 @Repository
 public interface InvoiceDetailRepository extends JpaRepository<InvoiceDetail, Long> {
-
 }

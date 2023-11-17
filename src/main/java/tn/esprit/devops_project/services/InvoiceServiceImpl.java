@@ -64,5 +64,4 @@ public class InvoiceServiceImpl implements IInvoiceService {
 		return invoiceRepository.getTotalAmountInvoiceBetweenDates(startDate, endDate);
 	}
 
-
 }

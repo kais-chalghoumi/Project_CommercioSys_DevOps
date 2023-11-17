@@ -6,5 +6,4 @@ import tn.esprit.devops_project.entities.Operator;
 
 @Repository
 public interface OperatorRepository extends JpaRepository<Operator, Long> {
-
 }

@@ -6,7 +6,6 @@ import tn.esprit.devops_project.entities.Supplier;
 import tn.esprit.devops_project.services.Iservices.ISupplierService;
 import java.util.List;
 
-
 @RestController
 @AllArgsConstructor
 @RequestMapping("/")
@@ -39,6 +38,5 @@ public class SupplierController {
 	public Supplier modifyFournisseur(@RequestBody Supplier supplier) {
 		return supplierService.updateSupplier(supplier);
 	}
-
 
 }

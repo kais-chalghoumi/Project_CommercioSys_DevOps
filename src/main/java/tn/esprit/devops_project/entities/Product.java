@@ -23,6 +23,7 @@ public class Product implements Serializable {
     int quantity;
     @Enumerated(EnumType.STRING)
     ProductCategory category;
+
     @ManyToOne
     @JsonIgnore
     Stock stock;

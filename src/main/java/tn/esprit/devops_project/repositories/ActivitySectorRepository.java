@@ -6,4 +6,5 @@ import tn.esprit.devops_project.entities.ActivitySector;
 
 @Repository
 public interface ActivitySectorRepository extends JpaRepository<ActivitySector, Long> {
+
 }

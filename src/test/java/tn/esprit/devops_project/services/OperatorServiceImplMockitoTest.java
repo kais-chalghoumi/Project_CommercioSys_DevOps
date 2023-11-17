@@ -67,5 +67,4 @@ class OperatorServiceImplMockitoTest {
         Assertions.assertEquals(operator.getFname(), updatedOperator.getFname());
         Mockito.verify(operatorRepository, Mockito.times(1)).save(Mockito.any(Operator.class));
     }
-
 }

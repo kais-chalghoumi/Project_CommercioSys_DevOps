@@ -25,9 +25,11 @@ public class Supplier implements Serializable {
 	String label;
 	@Enumerated(EnumType.STRING)
 	SupplierCategory supplierCategory;
+
 	@OneToMany(mappedBy="supplier")
 	@JsonIgnore
 	private transient Set<Invoice> invoices;
+
 	@ManyToMany
 	private Set<ActivitySector> activitySectors;
 

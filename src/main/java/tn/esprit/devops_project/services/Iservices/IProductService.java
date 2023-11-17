@@ -13,5 +13,4 @@ public interface IProductService {
     List<Product> retrieveProductByCategory(ProductCategory category);
     void deleteProduct(Long id);
     List<Product> retreiveProductStock(Long id);
-
 }

@@ -7,5 +7,4 @@ import tn.esprit.devops_project.entities.Supplier;
 
 @Repository
 public interface SupplierRepository extends JpaRepository<Supplier, Long> {
-
 }

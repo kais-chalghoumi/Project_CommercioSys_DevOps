@@ -15,4 +15,5 @@ public interface IActivitySector {
 
     ActivitySector retrieveActivitySector(Long id);
 
+
 }

@@ -84,5 +84,4 @@ class OperatorServiceImplJUnitTest {
         Assertions.assertEquals(operatorUpdated.getLname(),"updated2");
         Assertions.assertEquals(operatorUpdated.getPassword(),"updated3");
     }
-
 }

@@ -16,4 +16,5 @@ public interface IOperatorService {
 	Operator updateOperator(Operator operator);
 
 	Operator retrieveOperator(Long id);
+
 }

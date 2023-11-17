@@ -50,13 +50,12 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.8</version> <!-- Remplacez par la version actuelle de JaCoCo -->
+                <version>0.8.8</version>
                 <executions>
                     <execution>
                         <goals>
@@ -65,7 +64,7 @@
                     </execution>
                     <execution>
                         <id>report</id>
-                        <phase>prepare-package</phase> <!-- Remplacez par la phase appropriée -->
+                        <phase>prepare-package</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
@@ -86,5 +85,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
