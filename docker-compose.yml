@@ -4,6 +4,7 @@ services:
   DevopsBack:
     image: chalghoumikais/devopsprojectback:1.0.0
     #image: wathek28/devopsprojectback:1.0.0
+    #image: azizlimem/alpine:0.1-SPRING-Compose
     container_name: back-devops-project
     ports:
       - "8089:8089"
