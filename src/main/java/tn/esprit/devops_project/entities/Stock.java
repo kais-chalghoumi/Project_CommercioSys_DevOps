@@ -5,6 +5,7 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -21,4 +22,10 @@ public class Stock implements Serializable {
     String title;
     @OneToMany(mappedBy = "stock")
     Set<Product> products;
+
+    public Stock(String title, Set<Product> products) {
+        this.title = title;
+        this.products = products;
+    }
+
 }

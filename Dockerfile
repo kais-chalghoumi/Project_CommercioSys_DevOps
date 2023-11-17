@@ -1,6 +1,7 @@
-FROM maven:3.8.2-jdk-8
-ARG JAR_FILE=target/*.jar
+FROM openjdk:8-jdk-alpine
 
-COPY ${JAR_FILE} kaddem-2.0.0.jar
-ENTRYPOINT ["java", "-jar" ,"/kaddem-2.0.0.jar"]
-EXPOSE 8089
+EXPOSE 8083
+
+ADD http://192.168.0.117:8081/repository/maven-releases/tn/esprit/DevOps_Project/0.0.1/DevOps_Project-0.0.1.jar DevOps_Project-0.0.1.jar
+
+ENTRYPOINT ["java", "-jar", "/DevOps_Project-0.0.1.jar"]
