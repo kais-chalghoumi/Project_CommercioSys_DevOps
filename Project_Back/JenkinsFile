@@ -1,0 +1,112 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Tool verifying') {
+            steps {
+                sh'''
+                docker version
+                docker info
+                docker compose version
+                curl --version
+            '''
+            }
+        }
+        stage('GIT Checkout') {
+            steps {
+                git credentialsId: '',
+                url: 'https://github.com/kais-chalghoumi/DevOps_Project_Back'
+            }
+        }
+        stage('Tests JUnit/Mockito') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+        stage('JaCoCo Coverage') {
+            steps {
+                sh 'mvn jacoco:prepare-agent jacoco:report'
+            }
+        }
+        stage('SonarQube Analysis') {
+            steps {
+                jacoco()
+                withSonarQubeEnv('SonarQubeServer') {
+                sh 'mvn clean verify sonar:sonar -Dsonar.login=#### -Dsonar.password=####'
+                }
+            }
+        }
+        stage('Build Artifact') {
+            steps {
+                sh'mvn clean install -DskipTests=true'
+            }
+        }
+        stage('Deploy To Nexus') {
+            steps {
+                sh 'mvn deploy:deploy-file -Durl=http://192.168.0.117:8081/repository/maven-releases -DrepositoryId=deploymentRepo -Dfile=/var/lib/jenkins/workspace/Timesheet_DevOps_Project/target/DevOps_Project-0.0.1-SNAPSHOT.jar -DgroupId=tn.esprit -DartifactId=DevOps_Project -Dversion=0.0.1 -Dpackaging=jar'
+            }
+        }
+        stage('Build Back Image') {
+            steps {
+                sh 'docker build -t chalghoumikais/devopsprojectback:1.0.0 .'
+            }
+        }
+        stage('Push Back Image to Docker Hub') {
+            steps {
+                sh 'docker login -u #### -p ####'
+                sh 'docker push chalghoumikais/devopsprojectback:1.0.0'
+            }
+        }
+        stage('Docker Compose') {
+            steps {
+                sh 'docker compose down'
+                sh 'docker compose up -d'
+            }
+        }
+        stage('Prometheus & Grafana') {
+            steps {
+                sh '''
+                    docker start prometheus
+                    docker start grafana
+                '''
+            }
+        }
+
+    }
+    post {
+        success {
+            script {
+                emailext (
+                    subject:"Succès : Le pipeline a réussi: ${BUILD_NUMBER}",
+                    body: '''<html>
+                                <body>
+                                    <p> Build Status: ${BUILD_STATUS} </p>
+                                    <p> Build Number: ${BUILD_NUMBER} </p>
+                                    <p>Check the: <a href="${BUILD_URL}">consol output </a>.</p>
+                                </body>
+                                </html>''',
+                    to: '####',
+                    from: '####',
+                    mimeType : 'text/html'
+                )
+            }
+        }
+		failure {
+            script {
+                emailext (
+                    subject:"Failure : Le pipeline a échoué: ${BUILD_NUMBER}",
+                    body: '''<html>
+                                <body>
+                                    <p> Build Status: ${BUILD_STATUS} </p>
+                                    <p> Build Number: ${BUILD_NUMBER} </p>
+                                    <p>Check the: <a href="${BUILD_URL}">consol output </a>.</p>
+                                </body>
+                                </html>''',
+                    to: '####',
+                    from: '####',
+                    mimeType : 'text/html'
+                )
+            }
+        }
+    }
+}
