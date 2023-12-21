@@ -4,7 +4,8 @@
 Commercial Management System
 
 ## Description: 
-The project aims to develop a comprehensive business management system that will enable a company to track and manage its business activities. It will cover various aspects such as managing suppliers, products, invoices, inventory, etc.
+The project aims to develop a comprehensive business management system that will enable a company to track and manage its business activities.
+It will cover various aspects such as managing suppliers, products, invoices, inventory, etc.
 
 ## Project Name: CommercioSys
 
